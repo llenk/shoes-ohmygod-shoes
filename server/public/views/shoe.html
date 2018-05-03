@@ -1,0 +1,16 @@
+<div>
+    <ul ng-controller="shoeController as vm">
+        <li ng-repeat="item in vm.shoes.list">
+            <input type="text" ng-model="item.name" />s cost $
+            <input type="number" ng-model="item.cost">
+            <button ng-click="vm.deleteShoe(item)">TRASH</button>
+            <button ng-click="vm.saveShoe(item)">SAVE</button>
+        </li>
+    </ul>
+    <h3>Add a ******* new shoe :/</h3>
+    <form ng-submit="vm.addNewShoe()">
+        <input type="text" placeholder="name" ng-model="vm.newShoe.name">
+        <input type="number" placeholder="cost" ng-model="vm.newShoe.cost">
+        <button>ADD IT.</button>
+    </form>
+</div>

@@ -1,16 +1,12 @@
 console.log('javascript loaded');
 
-var app = angular.module('shoeApp', []);
+var app = angular.module('shoeApp', ['ngRoute']);
 
-app.controller('shoeController', ['$http', 'HttpService', function ($http, HttpService) {
-    console.log('angular loaded');
-    var self = this;
-
-    self.shoes = HttpService.shoes;
-    self.getRequest = HttpService.getRequest;
-    self.deleteShoe = HttpService.deleteShoe;
-    self.saveShoe = HttpService.saveShoe;
-
-    self.getRequest();
-    
-}]);
+app.config(function ($routeProvider) {
+    $routeProvider.when('/shoe', {
+        templateUrl: './views/shoe.html', 
+        controller: 'shoeController as vm'
+    }).otherwise({
+        template: '<h2>404</h2>'
+    });
+});

@@ -6,21 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
     <script src="scripts/client.js"></script>
-    <script src="scripts/services/http.service.js"></script>
+    <script src="scripts/services/shoe.service.js"></script>
+    <script src="scripts/controllers/shoe.controller.js"></script>
+
     <link rel="stylesheet" href="styles/style.css">
     <title>PG Rated</title>
 </head>
 
-<body ng-app="shoeApp" ng-controller="shoeController as vm">
+<body ng-app="shoeApp">
     <ul>
-        <li ng-repeat="item in vm.shoes.list">
-            <input type="text" ng-model="item.name" />s cost 
-            $<input type="number" ng-model="item.cost">
-            <button ng-click="vm.deleteShoe(item)">TRASH</button>
-            <button ng-click="vm.saveShoe(item)">SAVE</button>
+        <li>
+            <a ng-href="#!/">Home, Home on the Range, Where the cattle are eating their prey</a>
+        </li>
+        <li>
+            <a ng-href="#!/shoe">Shoes, oh my god, Shoes</a>
+        </li>
+        <li>
+            <a ng-href="#!/sock">Socks, Socks, Socks</a>
         </li>
     </ul>
+    <ng-view></ng-view>
 </body>
 
 </html>
