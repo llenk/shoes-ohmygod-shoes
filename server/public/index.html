@@ -8,6 +8,7 @@
     <script src="vendors/angular.min.js"></script>
     <script src="scripts/client.js"></script>
     <script src="scripts/services/http.service.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
     <title>PG Rated</title>
 </head>
 
@@ -15,7 +16,7 @@
     <ul>
         <li ng-repeat="item in vm.shoes.list">
             <input type="text" ng-model="item.name" />s cost 
-            $<input type="text" ng-model="item.cost">
+            $<input type="number" ng-model="item.cost">
             <button ng-click="vm.deleteShoe(item)">TRASH</button>
             <button ng-click="vm.saveShoe(item)">SAVE</button>
         </li>
