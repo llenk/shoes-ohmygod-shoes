@@ -54,6 +54,8 @@ app.post('/shoe', function(req, res) {
         });
 });
 
+app.use(express.static('server/public'));
+
 app.listen(port, function() {
     console.log('listening on port', port);
 });

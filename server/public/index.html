@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
     <title>PG Rated</title>
 </head>
-<body>
-    
+<body ng-app="shoeApp" ng-controller="shoeController as vm">
+    <ul>
+        <li ng-repeat="item in vm.shoes">{{item.name}}s cost ${{item.cost}}</li>
+    </ul>
 </body>
 </html>
