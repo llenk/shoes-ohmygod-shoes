@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,16 @@
     <script src="scripts/services/http.service.js"></script>
     <title>PG Rated</title>
 </head>
+
 <body ng-app="shoeApp" ng-controller="shoeController as vm">
     <ul>
-        <li ng-repeat="item in vm.shoes.list">{{item.name}}s cost ${{item.cost}}</li>
+        <li ng-repeat="item in vm.shoes.list">
+            <input type="text" ng-model="item.name" />s cost 
+            $<input type="text" ng-model="item.cost">
+            <button ng-click="vm.deleteShoe(item)">TRASH</button>
+            <button ng-click="vm.saveShoe(item)">SAVE</button>
+        </li>
     </ul>
 </body>
+
 </html>

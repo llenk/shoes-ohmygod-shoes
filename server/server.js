@@ -54,6 +54,30 @@ app.post('/shoe', function(req, res) {
         });
 });
 
+app.delete('/shoe', function(req, res) {
+    pool.query(`DELETE FROM "shoes" 
+        WHERE "id" = $1;`, [req.query.id])
+    .then(() => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    })
+});
+
+app.put('/shoe', function(req, res) {
+    pool.query(`UPDATE "shoes" 
+        SET ("name", "cost") = ($1, $2) 
+        WHERE "id" = $3;`, 
+        [req.body.name, req.body.cost, req.body.id])
+    .then(() => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
+})
+
 app.use(express.static('server/public'));
 
 app.listen(port, function() {

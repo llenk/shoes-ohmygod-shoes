@@ -8,6 +8,8 @@ app.controller('shoeController', ['$http', 'HttpService', function ($http, HttpS
 
     self.shoes = HttpService.shoes;
     self.getRequest = HttpService.getRequest;
+    self.deleteShoe = HttpService.deleteShoe;
+    self.saveShoe = HttpService.saveShoe;
 
     self.getRequest();
     

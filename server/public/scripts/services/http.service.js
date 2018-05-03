@@ -12,5 +12,27 @@ app.service('HttpService', ['$http', function($http) {
         }).catch(function(error) {
             console.log('there was an error', error);
         });
-    }
+    };
+    self.deleteShoe = function(shoe) {
+        $http({
+            method: 'DELETE', 
+            url: '/shoe',
+            params: shoe
+        }).then(function(response) {
+            self.getRequest();
+        }).catch(function(error) {
+            console.log('there was an error', error);
+        });
+    };
+    self.saveShoe = function(shoe) {
+        $http({
+            method: 'PUT',
+            url: '/shoe',
+            data: shoe
+        }).then(function(response) {
+            self.getRequest();
+        }).catch(function(error) {
+            console.log('there was an error :( ', error);
+        });
+    };
 }]);
