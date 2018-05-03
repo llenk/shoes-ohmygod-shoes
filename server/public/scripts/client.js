@@ -2,18 +2,13 @@ console.log('javascript loaded');
 
 var app = angular.module('shoeApp', []);
 
-app.controller('shoeController', ['$http', function ($http) {
+app.controller('shoeController', ['$http', 'HttpService', function ($http, HttpService) {
     console.log('angular loaded');
     var self = this;
 
-    self.shoes = [];
+    self.shoes = HttpService.shoes;
+    self.getRequest = HttpService.getRequest;
 
-    $http({
-        method: 'GET',
-        url: '/shoe'
-    }).then(function(response) {
-        self.shoes = response.data;
-    }).catch(function(error) {
-        console.log('there was an error', error);
-    });
+    self.getRequest();
+    
 }]);
